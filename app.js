@@ -88,7 +88,7 @@ const sheets = {
       <div class="data-row featured"><strong>Buonissimo Gelato &amp; Café</strong><small>Pedidos por WhatsApp. Anticipa 35 min.</small><a href="https://wa.me/523222102354">322-210-2354</a></div>
       <div class="data-row"><strong>Pineda</strong><small>Mariscos con vista al mar.</small></div>
       <div class="data-row"><strong>Buhardilla</strong><small>Cocina mexicana, pescados y mariscos.</small></div>
-      <div class="data-row"><strong>Mariscos Chabe</strong><small>Pescados y mariscos.</small></div>
+      <div class="data-row"><strong>Mariscos Chabe</strong><small>Entregan a domicilio. Ideal para ceviches y aguachiles.</small><a class="row-phone" href="tel:+523222305953">322-230-5953</a></div>
       <div class="data-row"><strong>YESI</strong><small>Recomendado por la casa.</small></div>
       <div class="data-row"><strong>ALOHA</strong><small>Pizza y grill.</small></div>
       <div class="data-row"><strong>Mona Lisa</strong><small>Pizzas, en Sol Nuevo.</small></div>`
