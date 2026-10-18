@@ -164,3 +164,5 @@ body.sheet-open { overflow: hidden; }
 .lang-toggle span.active { background: rgba(255,255,255,.26); color: white; }
 .hero { height: 480px; }
 .hero-copy { bottom: 40px; }
+.stay-section { padding-top: 44px; padding-bottom: 36px; }
+.stay-section .section-head { margin-bottom: 26px; }
