@@ -53,7 +53,6 @@ function wifiSheetHtml() {
     <div class="suite-groups">
       <div class="suite-group"><strong>Suites</strong><div class="suite-chips">${suites}</div></div>
       <div class="suite-group"><strong>Villas</strong><div class="suite-chips">${villasHtml}</div></div>
-      <div class="suite-group"><strong>Penthouse</strong><div class="suite-chips"><button class="suite-chip" type="button" data-unit="ph">PH</button></div></div>
     </div>
     <div class="wifi-result" id="wifiResult" hidden>
       <div class="data-row"><strong>Unidad</strong><small id="wifiUnitLabel"></small></div>
