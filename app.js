@@ -105,7 +105,7 @@ const sheets = {
       <div class="data-row"><strong>Chacala</strong><small>Pueblo y playa cercanos, perfectos para una salida corta.</small><a class="row-phone" href="https://maps.app.goo.gl/CphYW7ufBAfKfdHo6" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Playa Los Venados</strong><small>Playa recomendada cerca de Guayabitos.</small><a class="row-phone" href="https://maps.app.goo.gl/7iwpXzpasXWptBfd7" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Lo de Marcos</strong><small>Destino cercano para explorar la costa.</small><a class="row-phone" href="https://maps.app.goo.gl/zWvqGkRqr1uPNrPLA" target="_blank" rel="noreferrer">Ver ubicación</a></div>
-      <div class="data-row"><strong>Platanitos</strong><small>Playa recomendada para una escapada.</small></div>
+      <div class="data-row"><strong>Platanitos</strong><small>Playa recomendada para una escapada.</small><a class="row-phone" href="https://maps.app.goo.gl/bGiFoxjsgm4wD1fS6" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Hike Playa del Toro</strong><small>Caminata hacia la playa del Toro.</small></div>
       <div class="data-row"><strong>Mirador del Toro</strong><small>Vista panorámica cercana.</small></div>`
   },
