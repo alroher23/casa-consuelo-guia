@@ -103,7 +103,7 @@ const sheets = {
       <p>Planes cercanos recomendados por la casa.</p>
       <div class="data-row"><strong>Playa Guayabitos · zona residencial</strong><small>La parte más tranquila de Guayabitos, sin ruido. Ideal para caminar y nadar con calma.</small><a class="row-phone" href="https://maps.app.goo.gl/Jpr5ntzbSsvfURUw9" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Chacala</strong><small>Pueblo y playa cercanos, perfectos para una salida corta.</small><a class="row-phone" href="https://maps.app.goo.gl/CphYW7ufBAfKfdHo6" target="_blank" rel="noreferrer">Ver ubicación</a></div>
-      <div class="data-row"><strong>Playa Los Venados</strong><small>Playa recomendada cerca de Guayabitos.</small></div>
+      <div class="data-row"><strong>Playa Los Venados</strong><small>Playa recomendada cerca de Guayabitos.</small><a class="row-phone" href="https://maps.app.goo.gl/7iwpXzpasXWptBfd7" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Lo de Marcos</strong><small>Destino cercano para explorar la costa.</small></div>
       <div class="data-row"><strong>Platanitos</strong><small>Playa recomendada para una escapada.</small></div>
       <div class="data-row"><strong>Hike Playa del Toro</strong><small>Caminata hacia la playa del Toro.</small></div>
