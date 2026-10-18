@@ -148,3 +148,5 @@ body.sheet-open { overflow: hidden; }
 .wifi-result[hidden] { display: none !important; }
 .copy-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .copy-row button { border: 0; border-radius: 999px; padding: 8px 12px; background: #fae9df; color: var(--clay); font-size: 11px; font-weight: 700; cursor: pointer; }
+
+.brand-logo { height: 58px; width: auto; display: block; filter: drop-shadow(0 1px 6px rgba(0,0,0,.35)); }
