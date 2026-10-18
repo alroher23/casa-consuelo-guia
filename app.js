@@ -129,7 +129,7 @@ const sheets = {
     icon: 'alert', kicker: 'Ayuda rápida', title: 'Emergencias', html: `
       <p>Guarda estos contactos. En una emergencia grave, llama al 911 o ve a un hospital grande.</p>
       <div class="data-row featured"><strong>Hospital La Joya · La Peñita</strong><small>El más cercano. También puedes pedir ambulancia.</small><a href="tel:+523271070508">327 107 0508</a></div>
-      <div class="data-row"><strong>Equipo de La Casa</strong><small>Raúl · <a href="tel:+523222151717">322 215 1717</a><br>Alan · <a href="tel:+523223705126">322 370 5126</a></small></div>
+      <div class="data-row"><strong>Equipo de La Casa</strong><small>Raúl · <a href="tel:+523222151717">322 215 1717</a><br>Alan · <a href="tel:+523223705126">322 370 5126</a><br>Adriana · <a href="tel:+528120027975">812 002 7975</a></small></div>
       <div class="data-row"><strong>911</strong><small>Emergencias nacionales</small></div>
       <div class="data-row"><strong>Bomberos Guayabitos</strong><small><a href="tel:+523272743578">327 274 3578</a></small></div>
       <div class="data-row"><strong>Policía</strong><small><a href="tel:+523276901160">327 690 1160</a> · <a href="tel:+523113161090">311 316 1090</a></small></div>
