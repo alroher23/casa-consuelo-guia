@@ -110,6 +110,11 @@ const sheets = {
       <div class="data-row"><strong>Playa Fríderas</strong><small>Playa recomendada cerca de Guayabitos.</small><a class="row-phone" href="https://maps.app.goo.gl/q6kGiXe8Jg9ihpHq7" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Hike Playa del Toro</strong><small>Caminata hacia la playa del Toro.</small><a class="row-phone" href="https://loc.wiki/t/238742085?wa=sc" target="_blank" rel="noreferrer">Ver ubicación</a></div>`
   },
+  beachclubs: {
+    icon: 'beach', kicker: 'Sol y mar', title: 'Beach Clubs', html: `
+      <p>Nuestros beach clubs recomendados en la zona.</p>
+      <div class="data-row"><strong>Muy pronto</strong><small>Estamos preparando nuestras recomendaciones.</small></div>`
+  },
   spaces: {
     icon: 'home', kicker: 'La casa', title: 'Nuestros espacios', html: `
       <p>Arquitectura contemporánea, jardines tropicales, alberca y suites para descansar con calma.</p>
