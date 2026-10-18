@@ -73,7 +73,7 @@ const sheets = {
     icon: 'home', kicker: 'Convivencia', title: 'Reglamento de la casa', html: `
       <p>Notas para estancias cortas. Queremos que todas las personas disfruten un ambiente tranquilo y agradable.</p>
       <div class="data-row"><strong>Horarios</strong><small>Llegada 3:00 p.m. · Salida 11:00 a.m.</small></div>
-      <div class="data-row"><strong>Horario de alberca</strong><small>De 8:00 a.m. a 9:00 p.m.</small></div>
+      <div class="data-row"><strong>Alberca</strong><small>Horario de 8:00 a.m. a 9:00 p.m.<br>Los menores deben estar acompañados de un adulto siempre.<br>Prohibido usar envases de vidrio y comer alrededor de la alberca.</small></div>
       <div class="data-row"><strong>Horario de áreas comunes</strong><small>De 8:00 a.m. a 11:00 p.m.</small></div>
       <div class="data-row"><strong>Acceso</strong><small>Mantén siempre cerrada la puerta de la calle, y con llave después de las 8:00 p.m.</small></div>
       <div class="data-row"><strong>Mascotas</strong><small>No se permiten mascotas.</small></div>
