@@ -113,7 +113,7 @@ const sheets = {
   beachclubs: {
     icon: 'beach', kicker: 'Sol y mar', title: 'Beach Clubs', html: `
       <p>Nuestros beach clubs recomendados en la zona.</p>
-      <div class="data-row"><strong>Muy pronto</strong><small>Estamos preparando nuestras recomendaciones.</small></div>`
+      <div class="data-row"><strong>Guayami Vice</strong><small>Beach club recomendado.</small><a class="row-phone" href="https://share.google/yb7CZir0Q1l9KlbZb" target="_blank" rel="noreferrer">Ver ubicación</a></div>`
   },
   spaces: {
     icon: 'home', kicker: 'La casa', title: 'Nuestros espacios', html: `
