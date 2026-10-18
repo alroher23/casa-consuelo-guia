@@ -97,7 +97,7 @@ const sheets = {
       <div class="data-row"><strong>Cevichería Coral</strong><small>Ideal para pedir ceviches a domicilio, por medio o kilo.</small><a class="row-phone" href="tel:+523271053962">327-105-3962</a></div>
       <div class="data-row"><strong>Hanami Sushi</strong><small>Buen sushi para comer ahí o pedir a domicilio.</small><a class="row-phone" href="https://share.google/rHHzfinMlFgo2iTDn" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>YESI</strong><small>Un lugar muy agradable para desayunar.</small><a class="row-phone" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Yesi+Grill+Emiliano+Zapata+25+La+Pe%C3%B1ita+de+Jaltemba+63720" target="_blank" rel="noreferrer">Emiliano Zapata 25, Centro, La Peñita de Jaltemba, CP 63720</a></div>
-      <div class="data-row"><strong>ALOHA</strong><small>Pizza y grill.</small></div>
+      <div class="data-row"><strong>ALOHA</strong><small>Pizza y grill.</small><a class="row-phone" href="https://share.google/RkjexoP3aac7IWgFB" target="_blank" rel="noreferrer">Ver ubicación</a></div>
       <div class="data-row"><strong>Mona Lisa</strong><small>Pizzas, en Sol Nuevo.</small></div>`
   },
   visit: {
