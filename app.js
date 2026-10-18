@@ -349,7 +349,7 @@ const staticEn = {
   visitKicker: 'Beaches and nearby getaways', visitTitle: 'What to see',
   altBeach: 'Palapa and table on the beach facing the sea',
   beachKicker: 'Sun and sea',
-  altVilla: 'Warm room with coastal decor',
+  altVilla: 'Terrace with outdoor kitchen and lit garden',
   spacesKicker: 'Inside the house', spacesTitle: 'Our spaces',
   essentials: 'The essentials', atHand: 'Quick access', guestGuide: 'Guest guide',
   wifiSub: 'Network and password',
