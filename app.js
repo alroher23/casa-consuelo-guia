@@ -67,7 +67,8 @@ const sheets = {
       <p>Estos son los horarios de tu estancia. Si necesitas flexibilidad, escríbenos con anticipación.</p>
       <div class="data-row"><strong>Hora de llegada</strong><small>3:00 p.m.</small></div>
       <div class="data-row"><strong>Hora de salida</strong><small>11:00 a.m.</small></div>
-      <div class="data-row"><strong>Instrucciones de acceso</strong><small>Al llegar, alguien del equipo te recibe y te acompaña a tu suite.</small></div>`
+      <div class="data-row"><strong>Instrucciones de acceso</strong><small>Al llegar, alguien del equipo te recibe y te acompaña a tu suite.</small></div>
+      <div class="data-row"><strong>Salida</strong><small>Por favor avísanos cuando vayas a salir para hacer la revisión de inventario y que nos regreses las llaves.</small></div>`
   },
   rules: {
     icon: 'home', kicker: 'Convivencia', title: 'Reglamento de la casa', html: `
