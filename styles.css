@@ -157,3 +157,5 @@ body.sheet-open { overflow: hidden; }
 .data-row.featured strong { color: #b5562e; }
 .data-row.featured a { display:block; margin-top:4px; font-weight:700; color:#b5562e; }
 .row-phone { display:block; margin-top:4px; font-weight:700; color:#b5562e; }
+.help-actions .help-emergency { background:#b5562e; color:#fff; border-color:#b5562e; }
+.help-actions { flex-wrap: wrap; }
