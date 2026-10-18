@@ -119,7 +119,7 @@ const sheets = {
       <div class="faq-item"><strong>¿Hay taxi de confianza?</strong><span>Tony Taxi (habla inglés): <a href="https://wa.me/523221099223">322 109 9223</a></span></div>
       <div class="faq-item"><strong>¿Puedo pedir comida a domicilio?</strong><span>Buonissimo Gelato &amp; Café: WhatsApp <a href="https://wa.me/528120027975">812 002 7975</a> (pide con 35 min de anticipación). Ceviche Coral: <a href="tel:+523271053962">327 105 3962</a>.</span></div>
       <div class="faq-item"><strong>¿Dónde hay un médico cercano?</strong><span>Dr. Edgar Guzmán en La Peñita, WhatsApp <a href="https://wa.me/523221175855">322 117 5855</a>. Para emergencias graves, ve a un hospital grande.</span></div>
-      <div class="faq-item"><strong>¿Cómo contacto a la casa?</strong><span>La Casa: <a href="tel:+523222102354">322 210 2354</a>. Anfitriona Adriana Lara: <a href="https://wa.me/528120027975">812 002 7975</a>.</span></div>`
+      <div class="faq-item"><strong>¿Cómo contacto a la casa?</strong><span>La Casa: <a href="tel:+523222102354">322 210 2354</a>. Adriana: <a href="https://wa.me/528120027975">812 002 7975</a>.</span></div>`
   },
   map: {
     icon: 'map', kicker: 'Ubicación', title: 'Cómo llegar', html: `
@@ -138,7 +138,6 @@ const sheets = {
       <div class="data-row"><strong>Hospitales en Bucerías</strong><small>CMQ Riviera Nayarit · <a href="tel:+523292980717">329 298 0717</a></small></div>
       <div class="data-row"><strong>Hospitales en Puerto Vallarta</strong><small>La Joya · <a href="tel:+523222261010">322 226 1010</a><br>CMQ Centro · <a href="tel:+523222231173">322 223 1173</a><br>Hospiten · <a href="tel:+523222262080">322 226 2080</a></small></div>
       <div class="data-row"><strong>La Casa de Consuelo</strong><small><a href="tel:+523222102354">322 210 2354</a></small></div>
-      <div class="data-row"><strong>Anfitriona · Adriana Lara</strong><small><a href="https://wa.me/528120027975">812 002 7975</a></small></div>
       <div class="sheet-actions"><a href="tel:911">Llamar al 911</a><a class="secondary" href="tel:+523222102354">Llamar a La Casa</a></div>`
   },
   menu: {
