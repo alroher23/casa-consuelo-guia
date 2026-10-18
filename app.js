@@ -21,9 +21,10 @@ function renderIcons(root = document) {
     el.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${icons[name] || icons.info}</svg>`;
   });
 }
-const suiteNumbers = [1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20];
+const suiteNumbers = [7,8,9,11,12,13,14,15,16,17,18,19,20];
 const villas = ['A','B','C','1','2','3'];
 const units = [
+  { id: 'suites-1-6', label: 'Suites 1–6', group: 'Suites' },
   ...suiteNumbers.map(n => ({ id: `suite-${n}`, label: `Suite ${n}`, group: 'Suites' })),
   ...villas.map(n => ({ id: `villa-${n}`, label: `Villa ${n}`, group: 'Villas' })),
   { id: 'ph', label: 'PH', group: 'Penthouse' }
@@ -38,11 +39,11 @@ const villaPasswords = {
   'villa-3': 'Villa3CC'
 };
 const wifiByUnit = Object.fromEntries(units.map(u => [u.id, {
-  ssid: 'Por confirmar',
+  ssid: ({ 'suites-1-6': 'CC HALL N2' })[u.id] || 'Por confirmar',
   password: villaPasswords[u.id] || DEFAULT_WIFI_PASSWORD
 }]));
 function chipHtml(unit) {
-  return `<button class="suite-chip" type="button" data-unit="${unit.id}">${unit.label.replace(/^Suite |^Villa /, '')}</button>`;
+  return `<button class="suite-chip" type="button" data-unit="${unit.id}">${unit.label.replace(/^Suites? |^Villa /, '')}</button>`;
 }
 function wifiSheetHtml() {
   const suites = units.filter(u => u.group === 'Suites').map(chipHtml).join('');
