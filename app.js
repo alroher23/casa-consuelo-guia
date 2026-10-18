@@ -85,9 +85,9 @@ const sheets = {
   eat: {
     icon: 'utensils', kicker: 'Sabores locales', title: 'Dónde comer', html: `
       <p>Recomendaciones de la casa, cerca de ti en Rincón de Guayabitos.</p>
+      <div class="data-row featured"><strong>Buonissimo Gelato &amp; Café</strong><small>Pedidos por WhatsApp. Anticipa 35 min.</small><a href="https://wa.me/523222102354">322-210-2354</a></div>
       <div class="data-row"><strong>Pineda</strong><small>Mariscos con vista al mar.</small></div>
       <div class="data-row"><strong>Buhardilla</strong><small>Cocina mexicana, pescados y mariscos.</small></div>
-      <div class="data-row"><strong>Buonissimo Gelato &amp; Café</strong><small>Pedidos por WhatsApp. Anticipa 35 min.</small></div>
       <div class="data-row"><strong>Mariscos Chabe</strong><small>Pescados y mariscos.</small></div>
       <div class="data-row"><strong>YESI</strong><small>Recomendado por la casa.</small></div>
       <div class="data-row"><strong>ALOHA</strong><small>Pizza y grill.</small></div>
