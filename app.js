@@ -128,11 +128,11 @@ const sheets = {
   emergency: {
     icon: 'alert', kicker: 'Ayuda rápida', title: 'Emergencias', html: `
       <p>Guarda estos contactos. En una emergencia grave, llama al 911 o ve a un hospital grande.</p>
+      <div class="data-row featured"><strong>Hospital La Joya · La Peñita</strong><small>El más cercano. También puedes pedir ambulancia.</small><a href="tel:+523271070508">327 107 0508</a></div>
       <div class="data-row"><strong>911</strong><small>Emergencias nacionales</small></div>
       <div class="data-row"><strong>Bomberos Guayabitos</strong><small><a href="tel:+523272743578">327 274 3578</a></small></div>
       <div class="data-row"><strong>Policía</strong><small><a href="tel:+523276901160">327 690 1160</a> · <a href="tel:+523113161090">311 316 1090</a></small></div>
       <div class="data-row"><strong>Dr. Edgar Guzmán · La Peñita</strong><small>Consultorio privado. WhatsApp <a href="https://wa.me/523221175855">322 117 5855</a><br>Vasco de Gama #12 A</small></div>
-      <div class="data-row"><strong>Hospitales en La Peñita</strong><small>La Joya Hospital · <a href="tel:+523271070508">327 107 0508</a></small></div>
       <div class="data-row"><strong>Hospitales en Bucerías</strong><small>CMQ Riviera Nayarit · <a href="tel:+523292980717">329 298 0717</a></small></div>
       <div class="data-row"><strong>Hospitales en Puerto Vallarta</strong><small>La Joya · <a href="tel:+523222261010">322 226 1010</a><br>CMQ Centro · <a href="tel:+523222231173">322 223 1173</a><br>Hospiten · <a href="tel:+523222262080">322 226 2080</a></small></div>
       <div class="data-row"><strong>La Casa de Consuelo</strong><small><a href="tel:+523222102354">322 210 2354</a></small></div>
