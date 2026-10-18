@@ -39,7 +39,7 @@ const villaPasswords = {
   'villa-3': 'Villa3CC'
 };
 const wifiByUnit = Object.fromEntries(units.map(u => [u.id, {
-  ssid: ({ 'suites-1-6': 'CC HALL N2' })[u.id] || '',
+  ssid: ({ 'suites-1-6': 'CC HALL N2', 'suite-9': 'CC SUITE 9/12', 'suite-12': 'CC SUITE 9/12' })[u.id] || '',
   password: villaPasswords[u.id] || DEFAULT_WIFI_PASSWORD
 }]));
 function chipHtml(unit) {
