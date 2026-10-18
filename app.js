@@ -125,8 +125,12 @@ const sheets = {
   },
   spaces: {
     icon: 'home', kicker: 'La casa', title: 'Nuestros espacios', html: `
-      <p>Arquitectura contemporánea, jardines tropicales, alberca y suites para descansar con calma.</p>
-      <div class="data-row"><strong>Información de alberca y áreas comunes</strong><small><span class="pending">Por confirmar</span></small></div>`
+      <p>Amenidades diseñadas para disfrutar, descansar y compartir durante tu estancia.</p>
+      <div class="data-row"><strong>Bar deportivo</strong><small>Disfruta hockey, NFL y futbol en transmisiones originales, con tres pantallas de 75 y 85 pulgadas.</small></div>
+      <div class="data-row"><strong>Cocina y asador</strong><small>Área exterior equipada con asador Weber, estufa de gas, fregadero y todo lo necesario para cocinar al aire libre.</small></div>
+      <div class="data-row"><strong>Terraza &amp; Roof Garden</strong><small>Ubicada en el tercer nivel, cuenta con asador y espacios rodeados de vegetación para relajarte y convivir.</small></div>
+      <div class="data-row"><strong>Sky Terrace</strong><small>Una terraza en el sexto nivel con plantas y una increíble vista al mar, ideal para disfrutar el atardecer.</small></div>
+      <div class="data-row"><strong>Alberca</strong><small>Refréscate en la alberca o descansa cómodamente en los camastros bajo el sol.</small></div>`
   },
   faq: {
     icon: 'help', kicker: 'Ayuda rápida', title: 'Preguntas frecuentes', html: `
@@ -294,8 +298,12 @@ const sheetsEn = {
   },
   spaces: {
     icon: 'home', kicker: 'The house', title: 'Our spaces', html: `
-      <p>Contemporary architecture, tropical gardens, a pool and suites made for slow, restful days.</p>
-      <div class="data-row"><strong>Pool and common area information</strong><small><span class="pending">To be confirmed</span></small></div>`
+      <p>Amenities designed for you to enjoy, relax and share during your stay.</p>
+      <div class="data-row"><strong>Sports bar</strong><small>Enjoy hockey, NFL and soccer in their original broadcasts, on three 75" and 85" screens.</small></div>
+      <div class="data-row"><strong>Kitchen &amp; grill</strong><small>Outdoor area equipped with a Weber grill, gas stove, sink and everything you need to cook outdoors.</small></div>
+      <div class="data-row"><strong>Terrace &amp; Roof Garden</strong><small>On the third floor, with a grill and green spaces to relax and spend time together.</small></div>
+      <div class="data-row"><strong>Sky Terrace</strong><small>A sixth-floor terrace with plants and an amazing ocean view, perfect for watching the sunset.</small></div>
+      <div class="data-row"><strong>Pool</strong><small>Cool off in the pool or lounge comfortably on the sunbeds.</small></div>`
   },
   faq: {
     icon: 'help', kicker: 'Quick help', title: 'Frequently asked questions', html: `
