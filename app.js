@@ -86,7 +86,7 @@ const sheets = {
     icon: 'utensils', kicker: 'Sabores locales', title: 'Dónde comer', html: `
       <p>Recomendaciones de la casa, cerca de ti en Rincón de Guayabitos.</p>
       <div class="data-row featured"><strong>Buonissimo Gelato &amp; Café</strong><small>Pedidos por WhatsApp. Anticipa 35 min.</small><a href="https://wa.me/523222102354">322-210-2354</a></div>
-      <div class="data-row"><strong>Pineda</strong><small>Mariscos con vista al mar.</small></div>
+      <div class="data-row"><strong>Pineda</strong><small>Buen lugar de mariscos, con una bonita vista de toda la bahía.</small><a class="row-phone" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Pineda+Carr.+a+Los+Ayala+5+Rinc%C3%B3n+de+Guayabitos+63724" target="_blank" rel="noreferrer">Carr. a Los Ayala 5, Centro, CP 63724</a></div>
       <div class="data-row"><strong>Buhardilla</strong><small>Ideal para cenar: un lugar agradable, con buen ambiente y un toque especial.</small><a class="row-phone" href="https://www.google.com/maps/search/?api=1&query=Buhardilla+Retorno+Jacarandas+4+Rinc%C3%B3n+de+Guayabitos+63724" target="_blank" rel="noreferrer">Rtno. Jacarandas 4, CP 63724</a></div>
       <div class="data-row"><strong>Mariscos Chabe</strong><small>Entregan a domicilio. Ideal para ceviches y aguachiles.</small><a class="row-phone" href="tel:+523222305953">322-230-5953</a></div>
       <div class="data-row"><strong>YESI</strong><small>Recomendado por la casa.</small></div>
