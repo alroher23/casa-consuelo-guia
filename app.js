@@ -113,7 +113,8 @@ const sheets = {
   beachclubs: {
     icon: 'beach', kicker: 'Sol y mar', title: 'Beach Clubs', html: `
       <p>Nuestros beach clubs recomendados en la zona.</p>
-      <div class="data-row"><strong>Guayami Vice</strong><small>Beach club recomendado.</small><a class="row-phone" href="https://share.google/yb7CZir0Q1l9KlbZb" target="_blank" rel="noreferrer">Ver ubicación</a></div>`
+      <div class="data-row"><strong>Guayami Vice</strong><small>Beach club recomendado.</small><a class="row-phone" href="https://share.google/yb7CZir0Q1l9KlbZb" target="_blank" rel="noreferrer">Ver ubicación</a></div>
+      <div class="data-row"><strong>El Barracuda</strong><small>A 40 min. Ideal si buscas algo diferente y para una escapada de todo el día con buena comida.</small><a class="row-phone" href="https://share.google/m1SprRMkTbfslIXu8" target="_blank" rel="noreferrer">Ver ubicación</a></div>`
   },
   spaces: {
     icon: 'home', kicker: 'La casa', title: 'Nuestros espacios', html: `
