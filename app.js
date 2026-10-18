@@ -45,19 +45,24 @@ const wifiByUnit = Object.fromEntries(units.map(u => [u.id, {
 function chipHtml(unit) {
   return `<button class="suite-chip" type="button" data-unit="${unit.id}">${unit.label.replace(/^Suites? |^Villa /, '')}</button>`;
 }
-function wifiSheetHtml() {
+const wifiLabels = {
+  es: { intro: 'Elige tu suite o villa para ver la red que te corresponde.', unit: 'Unidad', ssid: 'Nombre de la red', password: 'Contraseña', copy: 'Copiar', copied: 'Copiado' },
+  en: { intro: 'Choose your suite or villa to see your network.', unit: 'Unit', ssid: 'Network name', password: 'Password', copy: 'Copy', copied: 'Copied' }
+};
+function wifiSheetHtml(lang = 'es') {
+  const L = wifiLabels[lang] || wifiLabels.es;
   const suites = units.filter(u => u.group === 'Suites').map(chipHtml).join('');
   const villasHtml = units.filter(u => u.group === 'Villas').map(chipHtml).join('');
   return `
-    <p>Elige tu suite o villa para ver la red que te corresponde.</p>
+    <p>${L.intro}</p>
     <div class="suite-groups">
       <div class="suite-group"><strong>Suites</strong><div class="suite-chips">${suites}</div></div>
       <div class="suite-group"><strong>Villas</strong><div class="suite-chips">${villasHtml}</div></div>
     </div>
     <div class="wifi-result" id="wifiResult" hidden>
-      <div class="data-row"><strong>Unidad</strong><small id="wifiUnitLabel"></small></div>
-      <div class="data-row copy-row"><div><strong>Nombre de la red</strong><small id="wifiSsid"></small></div><button type="button" data-copy="ssid">Copiar</button></div>
-      <div class="data-row copy-row"><div><strong>Contraseña</strong><small id="wifiPass"></small></div><button type="button" data-copy="password">Copiar</button></div>
+      <div class="data-row"><strong>${L.unit}</strong><small id="wifiUnitLabel"></small></div>
+      <div class="data-row copy-row"><div><strong>${L.ssid}</strong><small id="wifiSsid"></small></div><button type="button" data-copy="ssid">${L.copy}</button></div>
+      <div class="data-row copy-row"><div><strong>${L.password}</strong><small id="wifiPass"></small></div><button type="button" data-copy="password">${L.copy}</button></div>
     </div>`;
 }
 const sheets = {
@@ -152,13 +157,6 @@ const sheets = {
       <div class="data-row"><strong>Hospitales en Puerto Vallarta</strong><small>La Joya · <a href="tel:+523222261010">322 226 1010</a><br>CMQ Centro · <a href="tel:+523222231173">322 223 1173</a><br>Hospiten · <a href="tel:+523222262080">322 226 2080</a></small></div>
       <div class="data-row"><strong>La Casa de Consuelo</strong><small><a href="tel:+523222102354">322 210 2354</a></small></div>
       <div class="sheet-actions"><a href="tel:911">Llamar al 911</a><a class="secondary" href="tel:+523222102354">Llamar a La Casa</a></div>`
-  },
-  menu: {
-    icon: 'compass', kicker: 'Tu guía', title: '¿Qué necesitas?', html: `
-      <div class="data-row"><strong>Wi‑Fi</strong><small>Elige tu suite y consulta la red.</small></div>
-      <div class="data-row"><strong>Llegada, salida y reglamento</strong><small>Todo para una estancia tranquila.</small></div>
-      <div class="data-row"><strong>Explorar y comer</strong><small>Recomendaciones locales, próximamente.</small></div>
-      <div class="sheet-actions"><a href="tel:+523222102354">Contactar</a></div>`
   }
 };
 const layer = document.querySelector('#sheetLayer');
@@ -168,6 +166,7 @@ const sheetContent = document.querySelector('#sheetContent');
 const sheetIcon = document.querySelector('#sheetIcon');
 let lastTrigger = null;
 let selectedUnit = null;
+let currentSheet = null;
 function pending(text) {
   return text === 'Por confirmar' ? `<span class="pending">${text}</span>` : text;
 }
@@ -197,16 +196,19 @@ function bindWifiSheet() {
       if (value === 'Por confirmar') return;
       try {
         await navigator.clipboard.writeText(value);
-        btn.textContent = 'Copiado';
-        setTimeout(() => { btn.textContent = 'Copiar'; }, 1200);
+        const L = wifiLabels[currentLang] || wifiLabels.es;
+        btn.textContent = L.copied;
+        setTimeout(() => { btn.textContent = L.copy; }, 1200);
       } catch (_) {}
     });
   });
 }
 function openSheet(name, trigger) {
-  const item = sheets[name];
+  const item = (currentLang === 'en' ? sheetsEn : sheets)[name];
   if (!item) return;
   lastTrigger = trigger;
+  currentSheet = name;
+  selectedUnit = null;
   sheetTitle.textContent = item.title;
   sheetKicker.textContent = item.kicker;
   sheetContent.innerHTML = typeof item.html === 'function' ? item.html() : item.html;
@@ -232,4 +234,174 @@ document.querySelectorAll('.bottom-nav a[href^="#"]').forEach(link => link.addEv
   document.querySelectorAll('.bottom-nav a').forEach(item => item.classList.remove('active'));
   link.classList.add('active');
 }));
+const sheetsEn = {
+  wifi: { icon: 'wifi', kicker: 'Get connected', title: 'Wi‑Fi', html: wifiSheetHtml('en') },
+  arrival: {
+    icon: 'clock', kicker: 'Your stay', title: 'Check-in & check-out', html: `
+      <p>Here are the times for your stay. If you need a little flexibility, just message us ahead of time.</p>
+      <div class="data-row"><strong>Check-in time</strong><small>3:00 p.m.</small></div>
+      <div class="data-row"><strong>Check-out time</strong><small>11:00 a.m.</small></div>
+      <div class="data-row"><strong>Arrival instructions</strong><small>When you arrive, someone from our team will welcome you and walk you to your suite.</small></div>
+      <div class="data-row"><strong>Check-out</strong><small>Please let us know when you’re heading out so we can do a quick inventory check and collect your keys.</small></div>`
+  },
+  rules: {
+    icon: 'home', kicker: 'Living together', title: 'House rules', html: `
+      <p>A few notes for short stays. We want everyone to enjoy a calm, pleasant atmosphere.</p>
+      <div class="data-row"><strong>Hours</strong><small>Check-in 3:00 p.m. · Check-out 11:00 a.m.</small></div>
+      <div class="data-row"><strong>Pool</strong><small>Open from 8:00 a.m. to 9:00 p.m.<br>Children must be accompanied by an adult at all times.<br>No glass containers and no eating around the pool.</small></div>
+      <div class="data-row"><strong>Common area hours</strong><small>From 8:00 a.m. to 11:00 p.m.</small></div>
+      <div class="data-row"><strong>Access</strong><small>Please always keep the street door closed, and locked after 8:00 p.m.</small></div>
+      <div class="data-row"><strong>Pets</strong><small>Pets are not allowed.</small></div>
+      <div class="data-row"><strong>Noise</strong><small>Speakers are not allowed in common areas.</small></div>
+      <div class="data-row"><strong>Smoking</strong><small>Smoking is not allowed anywhere on the property.</small></div>
+      <div class="data-row"><strong>Extra guests</strong><small>Without prior notice: an additional charge of $750 per night.</small></div>
+      <div class="data-row"><strong>Damages</strong><small>Any damage to the facilities, furniture, towels, bed linens or common areas must be covered by the guest.</small></div>
+      <div class="data-row"><strong>Payment</strong><small>Payments are non-refundable and non-transferable.</small></div>
+      <div class="data-row"><strong>Dates and suites</strong><small>The dates and minimum number of suites in your agreement must be honored; otherwise a penalty may apply.</small></div>
+      <div class="data-row"><strong>Rule violations</strong><small>We reserve the right to end or refuse a stay if the house rules are not followed.</small></div>`
+  },
+  eat: {
+    icon: 'utensils', kicker: 'Local flavors', title: 'Where to eat', html: `
+      <p>Our house favorites, close to you in Rincón de Guayabitos.</p>
+      <div class="data-row featured"><strong>Buonissimo Gelato &amp; Café</strong><small>Crêpes, waffles and smoothies. Order via WhatsApp; allow 35 min.</small><a href="https://wa.me/523222102354">322-210-2354</a></div>
+      <div class="data-row"><strong>Pineda</strong><small>Great seafood spot with a beautiful view of the whole bay.</small><a class="row-phone" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Pineda+Carr.+a+Los+Ayala+5+Rinc%C3%B3n+de+Guayabitos+63724" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Buhardilla</strong><small>Perfect for dinner: a lovely place with a great atmosphere and a special touch.</small><a class="row-phone" href="https://www.google.com/maps/search/?api=1&query=Buhardilla+Retorno+Jacarandas+4+Rinc%C3%B3n+de+Guayabitos+63724" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Mariscos Chabe</strong><small>Home delivery. Perfect for ceviche and aguachile.</small><a class="row-phone" href="tel:+523222305953">322-230-5953</a></div>
+      <div class="data-row"><strong>Mariscos El Compa Félix</strong><small>Nayarit-style seafood. Their specialty is the vaso marisquero, a seafood cocktail served in a cup.</small><a class="row-phone" href="https://maps.app.goo.gl/rTvzLQe1xVzfgcnq8" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Cevichería Coral</strong><small>Great for ceviche delivery, by the half kilo or kilo.</small><a class="row-phone" href="tel:+523271053962">327-105-3962</a></div>
+      <div class="data-row"><strong>Hanami Sushi</strong><small>Good sushi to enjoy there or order for delivery.</small><a class="row-phone" href="https://share.google/rHHzfinMlFgo2iTDn" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>YESI</strong><small>A really lovely spot for breakfast.</small><a class="row-phone" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Yesi+Grill+Emiliano+Zapata+25+La+Pe%C3%B1ita+de+Jaltemba+63720" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>ALOHA</strong><small>Pizza and grill.</small><a class="row-phone" href="https://share.google/RkjexoP3aac7IWgFB" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Mona Lisa</strong><small>Pizza, on Sol Nuevo.</small></div>`
+  },
+  visit: {
+    icon: 'beach', kicker: 'Explore', title: 'What to see', html: `
+      <p>Nearby outings recommended by the house.</p>
+      <div class="data-row"><strong>Playa Guayabitos · residential area</strong><small>The quietest part of Guayabitos, away from the noise. Perfect for a walk and a relaxed swim.</small><a class="row-phone" href="https://maps.app.goo.gl/Jpr5ntzbSsvfURUw9" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Playa Fríderas</strong><small>A beach we recommend near Guayabitos.</small><a class="row-phone" href="https://maps.app.goo.gl/q6kGiXe8Jg9ihpHq7" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Playa del Toro Hike</strong><small>A walk out to Playa del Toro.</small><a class="row-phone" href="https://loc.wiki/t/238742085?wa=sc" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Chacala</strong><small>A nearby town and beach, perfect for a short outing.</small><a class="row-phone" href="https://maps.app.goo.gl/CphYW7ufBAfKfdHo6" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Lo de Marcos</strong><small>A nearby spot for exploring the coast.</small><a class="row-phone" href="https://maps.app.goo.gl/zWvqGkRqr1uPNrPLA" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Playa Los Venados</strong><small>A beach we recommend near Guayabitos.</small><a class="row-phone" href="https://maps.app.goo.gl/7iwpXzpasXWptBfd7" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Platanitos</strong><small>A beach we recommend for a getaway.</small><a class="row-phone" href="https://maps.app.goo.gl/bGiFoxjsgm4wD1fS6" target="_blank" rel="noreferrer">View location</a></div>`
+  },
+  beachclubs: {
+    icon: 'beach', kicker: 'Sun and sea', title: 'Beach Clubs', html: `
+      <p>Our favorite beach clubs in the area.</p>
+      <div class="data-row"><strong>Guayami Vice</strong><small>A beach club we recommend.</small><a class="row-phone" href="https://share.google/yb7CZir0Q1l9KlbZb" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>Victor's Beach Club</strong><small>Local vibe.</small><a class="row-phone" href="https://share.google/AtYJjejCIyZiUo4IK" target="_blank" rel="noreferrer">View location</a></div>
+      <div class="data-row"><strong>El Barracuda</strong><small>40 min away. Perfect if you’re looking for something different, or a full-day getaway with great food.</small><a class="row-phone" href="https://share.google/m1SprRMkTbfslIXu8" target="_blank" rel="noreferrer">View location</a></div>`
+  },
+  spaces: {
+    icon: 'home', kicker: 'The house', title: 'Our spaces', html: `
+      <p>Contemporary architecture, tropical gardens, a pool and suites made for slow, restful days.</p>
+      <div class="data-row"><strong>Pool and common area information</strong><small><span class="pending">To be confirmed</span></small></div>`
+  },
+  faq: {
+    icon: 'help', kicker: 'Quick help', title: 'Frequently asked questions', html: `
+      <div class="faq-item"><strong>What’s the Wi‑Fi password?</strong><span>Choose your suite in the Wi‑Fi section. Almost all of them use the same password; villas may differ.</span></div>
+      <div class="faq-item"><strong>What time are check-in and check-out?</strong><span>Check-in 3:00 p.m. · Check-out 11:00 a.m. When you arrive, someone from our team will welcome you.</span></div>
+      <div class="faq-item"><strong>Are pets allowed?</strong><span>Pets are not allowed.</span></div>
+      <div class="faq-item"><strong>Can I smoke or use speakers?</strong><span>Smoking is not allowed on the property, and speakers are not allowed in common areas.</span></div>
+      <div class="faq-item"><strong>Is there a taxi you trust?</strong><span>Tony Taxi (speaks English): <a href="https://wa.me/523221099223">322 109 9223</a></span></div>
+      <div class="faq-item"><strong>Can I order food delivery?</strong><span>Buonissimo Gelato &amp; Café: WhatsApp <a href="https://wa.me/528120027975">812 002 7975</a> (order 35 min ahead). Ceviche Coral: <a href="tel:+523271053962">327 105 3962</a>.</span></div>
+      <div class="faq-item"><strong>Where can I find a doctor nearby?</strong><span>Dr. Edgar Guzmán in La Peñita, WhatsApp <a href="https://wa.me/523221175855">322 117 5855</a>. For serious emergencies, go to a major hospital.</span></div>
+      <div class="faq-item"><strong>How do I contact the house?</strong><span>La Casa: <a href="tel:+523222102354">322 210 2354</a>. Adriana: <a href="https://wa.me/528120027975">812 002 7975</a>.</span></div>`
+  },
+  map: {
+    icon: 'map', kicker: 'Location', title: 'How to get here', html: `
+      <p>La Casa de Consuelo is at Av. Sol Nuevo 86, Rincón de Guayabitos, one block from the beach and the restaurant area.</p>
+      <div class="sheet-actions"><a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Av.+Sol+Nuevo+86%2C+Rinc%C3%B3n+de+Guayabitos">Open in Maps</a></div>`
+  },
+  emergency: {
+    icon: 'alert', kicker: 'Quick help', title: 'Emergencies', html: `
+      <p>Save these contacts. In a serious emergency, call 911 or go to a major hospital.</p>
+      <div class="data-row featured"><strong>Hospital La Joya · La Peñita</strong><small>The closest one. You can also request an ambulance.</small><a href="tel:+523271070508">327 107 0508</a></div>
+      <div class="data-row"><strong>La Casa team</strong><small>Raúl · <a href="tel:+523222151717">322 215 1717</a><br>Alan · <a href="tel:+523223705126">322 370 5126</a><br>Adriana · <a href="tel:+528120027975">812 002 7975</a></small></div>
+      <div class="data-row"><strong>911</strong><small>National emergency line</small></div>
+      <div class="data-row"><strong>Guayabitos Fire Department</strong><small><a href="tel:+523272743578">327 274 3578</a></small></div>
+      <div class="data-row"><strong>Police</strong><small><a href="tel:+523276901160">327 690 1160</a> · <a href="tel:+523113161090">311 316 1090</a></small></div>
+      <div class="data-row"><strong>Dr. Edgar Guzmán · La Peñita</strong><small>Private practice. WhatsApp <a href="https://wa.me/523221175855">322 117 5855</a><br>Vasco de Gama #12 A</small></div>
+      <div class="data-row"><strong>Hospitals in Bucerías</strong><small>CMQ Riviera Nayarit · <a href="tel:+523292980717">329 298 0717</a></small></div>
+      <div class="data-row"><strong>Hospitals in Puerto Vallarta</strong><small>La Joya · <a href="tel:+523222261010">322 226 1010</a><br>CMQ Centro · <a href="tel:+523222231173">322 223 1173</a><br>Hospiten · <a href="tel:+523222262080">322 226 2080</a></small></div>
+      <div class="data-row"><strong>La Casa de Consuelo</strong><small><a href="tel:+523222102354">322 210 2354</a></small></div>
+      <div class="sheet-actions"><a href="tel:911">Call 911</a><a class="secondary" href="tel:+523222102354">Call La Casa</a></div>`
+  }
+};
+const staticEn = {
+  pageTitle: 'La Casa de Consuelo · Guest Guide',
+  metaDesc: 'Mobile guide for guests of La Casa de Consuelo.',
+  altHero: 'Pool and gardens of La Casa de Consuelo at sunset',
+  ariaBrand: 'La Casa de Consuelo, home',
+  ariaLang: 'Change language',
+  eyebrow: 'Your stay in Guayabitos',
+  heroTitle: 'Welcome<br>home.',
+  heroText: 'Everything you need to enjoy a few easygoing days, at your own pace.',
+  whereTitle: 'Where are we?',
+  whereText: 'One block from the beach',
+  hello: 'Hello!',
+  welcomeTitle: 'May your only rush<br>be getting to the beach.',
+  nearYou: 'Near you',
+  discover: 'Discover Guayabitos',
+  altFood: 'Seafood platter with Pineda beers by the sea',
+  eatKicker: 'Local flavors', eatTitle: 'Where to eat',
+  altVisit: 'Cliffside lookout over the turquoise sea',
+  visitKicker: 'Beaches and nearby getaways', visitTitle: 'What to see',
+  altBeach: 'Palapa and table on the beach facing the sea',
+  beachKicker: 'Sun and sea',
+  altVilla: 'Warm room with coastal decor',
+  spacesKicker: 'Inside the house', spacesTitle: 'Our spaces',
+  essentials: 'The essentials', atHand: 'Quick access', guestGuide: 'Guest guide',
+  wifiSub: 'Network and password',
+  arrivalTitle: 'Check-in & check-out', arrivalSub: 'Times and steps',
+  rulesTitle: 'House rules', rulesSub: 'For a peaceful stay',
+  contactUs: 'Contact us',
+  altHelp: 'Two-bed suite in soft tones',
+  weAreClose: 'We’re close by', needTitle: 'Need anything?',
+  needText: 'Find quick answers or get in touch with us.',
+  emergencies: 'Emergencies', seeFaq: 'See FAQs', callNow: 'Call now',
+  footerNote: 'Made for an unhurried stay.',
+  ariaNav: 'Main navigation', navHome: 'Home', navExplore: 'Explore', navHelp: 'Help', navContact: 'Contact',
+  ariaClose: 'Close'
+};
+const LANG_KEY = 'cc-lang';
+const i18nAttrs = [['i18n', null], ['i18nAlt', 'alt'], ['i18nAria', 'aria-label'], ['i18nContent', 'content']];
+const staticEs = { pageTitle: document.title };
+document.querySelectorAll('[data-i18n],[data-i18n-alt],[data-i18n-aria],[data-i18n-content]').forEach(el => {
+  i18nAttrs.forEach(([key, attr]) => {
+    const k = el.dataset[key];
+    if (k && !(k in staticEs)) staticEs[k] = attr ? el.getAttribute(attr) : el.innerHTML;
+  });
+});
+function readSavedLang() { try { return localStorage.getItem(LANG_KEY); } catch (_) { return null; } }
+function initialLang() {
+  const param = new URLSearchParams(location.search).get('lang');
+  if (param === 'es' || param === 'en') { try { localStorage.setItem(LANG_KEY, param); } catch (_) {} return param; }
+  const saved = readSavedLang();
+  if (saved === 'es' || saved === 'en') return saved;
+  return (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'es';
+}
+let currentLang = initialLang();
+function applyLang(lang) {
+  currentLang = lang === 'en' ? 'en' : 'es';
+  const dict = currentLang === 'en' ? staticEn : staticEs;
+  document.documentElement.lang = currentLang;
+  document.title = dict.pageTitle;
+  document.querySelectorAll('[data-i18n],[data-i18n-alt],[data-i18n-aria],[data-i18n-content]').forEach(el => {
+    i18nAttrs.forEach(([key, attr]) => {
+      const k = el.dataset[key];
+      if (!k || !(k in dict)) return;
+      if (attr) el.setAttribute(attr, dict[k]); else el.innerHTML = dict[k];
+    });
+  });
+  document.querySelectorAll('#langToggle [data-lang]').forEach(s => s.classList.toggle('active', s.dataset.lang === currentLang));
+  if (layer.classList.contains('open') && currentSheet) openSheet(currentSheet, lastTrigger);
+}
+document.querySelector('#langToggle').addEventListener('click', () => {
+  const next = currentLang === 'en' ? 'es' : 'en';
+  try { localStorage.setItem(LANG_KEY, next); } catch (_) {}
+  applyLang(next);
+});
+
 renderIcons();
+applyLang(currentLang);

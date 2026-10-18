@@ -4,31 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#173f3a">
-  <meta name="description" content="Guía móvil para huéspedes de La Casa de Consuelo.">
+  <meta name="description" data-i18n-content="metaDesc" content="Guía móvil para huéspedes de La Casa de Consuelo.">
   <title>La Casa de Consuelo · Guía del huésped</title>
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=50">
 </head>
 <body>
   <div class="app-shell">
     <header class="hero" id="inicio">
-      <img class="hero-photo" src="assets/logo.jpg" alt="Alberca y jardines de La Casa de Consuelo al atardecer">
+      <img class="hero-photo" src="assets/logo.jpg" data-i18n-alt="altHero" alt="Alberca y jardines de La Casa de Consuelo al atardecer">
       <div class="hero-shade"></div>
       <div class="topbar">
-        <a class="brand" href="#inicio" aria-label="La Casa de Consuelo, inicio">
+        <a class="brand" href="#inicio" data-i18n-aria="ariaBrand" aria-label="La Casa de Consuelo, inicio">
           <img class="brand-logo" src="assets/logo-white.png" width="95" height="58" style="height:58px;width:auto;max-width:120px" alt="La Casa de Consuelo">
         </a>
-        <button class="round-button" type="button" data-open="menu" aria-label="Abrir menú">
-          <span class="icon" data-icon="menu"></span>
+        <button class="lang-toggle" type="button" id="langToggle" data-i18n-aria="ariaLang" aria-label="Cambiar idioma">
+          <span data-lang="es">ES</span><span data-lang="en">EN</span>
         </button>
       </div>
       <div class="hero-copy">
-        <span class="eyebrow">Tu estancia en Guayabitos</span>
-        <h1>Bienvenido<br>a casa.</h1>
-        <p>Todo lo que necesitas para disfrutar unos días tranquilos, a tu ritmo.</p>
+        <span class="eyebrow" data-i18n="eyebrow">Tu estancia en Guayabitos</span>
+        <h1 data-i18n="heroTitle">Bienvenido<br>a casa.</h1>
+        <p data-i18n="heroText">Todo lo que necesitas para disfrutar unos días tranquilos, a tu ritmo.</p>
       </div>
       <a class="location-pill" href="https://share.google/dnYyckMnkoepcFADT" target="_blank" rel="noreferrer">
         <span class="icon" data-icon="pin"></span>
-        <span><strong>¿Dónde estamos?</strong><small>A una cuadra de la playa</small></span>
+        <span><strong data-i18n="whereTitle">¿Dónde estamos?</strong><small data-i18n="whereText">A una cuadra de la playa</small></span>
         <span class="icon arrow" data-icon="arrow"></span>
       </a>
     </header>
@@ -36,8 +36,8 @@
     <main>
       <section class="welcome-card">
         <div>
-          <span class="section-kicker">¡Hola!</span>
-          <h2>Que tu única prisa<br>sea llegar a la playa.</h2>
+          <span class="section-kicker" data-i18n="hello">¡Hola!</span>
+          <h2 data-i18n="welcomeTitle">Que tu única prisa<br>sea llegar a la playa.</h2>
         </div>
         <span class="sun-mark" aria-hidden="true">☼</span>
       </section>
@@ -45,26 +45,26 @@
       <section class="stay-section" id="explorar" aria-labelledby="discover-title">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Cerca de ti</span>
-            <h2 id="discover-title">Descubre Guayabitos</h2>
+            <span class="section-kicker" data-i18n="nearYou">Cerca de ti</span>
+            <h2 id="discover-title" data-i18n="discover">Descubre Guayabitos</h2>
           </div>
         </div>
         <div class="story-scroll">
           <button class="story-card" type="button" data-open="eat">
-            <img src="assets/photo-food.jpg" alt="Charola de mariscos con cervezas Pineda frente al mar">
-            <span><small>Sabores locales</small><strong>Dónde comer</strong></span>
+            <img src="assets/photo-food.jpg" data-i18n-alt="altFood" alt="Charola de mariscos con cervezas Pineda frente al mar">
+            <span><small data-i18n="eatKicker">Sabores locales</small><strong data-i18n="eatTitle">Dónde comer</strong></span>
           </button>
           <button class="story-card" type="button" data-open="visit">
-            <img src="assets/photo-visit.jpg" alt="Mirador sobre acantilado frente al mar turquesa">
-            <span><small>Playas y destinos cercanos</small><strong>Qué visitar</strong></span>
+            <img src="assets/photo-visit.jpg" data-i18n-alt="altVisit" alt="Mirador sobre acantilado frente al mar turquesa">
+            <span><small data-i18n="visitKicker">Playas y destinos cercanos</small><strong data-i18n="visitTitle">Qué visitar</strong></span>
           </button>
           <button class="story-card" type="button" data-open="beachclubs">
-            <img src="assets/photo-beachclub.jpg" alt="Palapa y mesa en la playa frente al mar">
-            <span><small>Sol y mar</small><strong>Beach Clubs</strong></span>
+            <img src="assets/photo-beachclub.jpg" data-i18n-alt="altBeach" alt="Palapa y mesa en la playa frente al mar">
+            <span><small data-i18n="beachKicker">Sol y mar</small><strong>Beach Clubs</strong></span>
           </button>
           <button class="story-card" type="button" data-open="spaces">
-            <img src="assets/photo-villa.jpg" alt="Habitación cálida con decoración costera">
-            <span><small>Dentro de casa</small><strong>Nuestros espacios</strong></span>
+            <img src="assets/photo-villa.jpg" data-i18n-alt="altVilla" alt="Habitación cálida con decoración costera">
+            <span><small data-i18n="spacesKicker">Dentro de casa</small><strong data-i18n="spacesTitle">Nuestros espacios</strong></span>
           </button>
         </div>
       </section>
@@ -72,44 +72,44 @@
       <section class="quick-section" aria-labelledby="quick-title">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Lo esencial</span>
-            <h2 id="quick-title">A la mano</h2>
+            <span class="section-kicker" data-i18n="essentials">Lo esencial</span>
+            <h2 id="quick-title" data-i18n="atHand">A la mano</h2>
           </div>
-          <span class="quiet-label">Guía del huésped</span>
+          <span class="quiet-label" data-i18n="guestGuide">Guía del huésped</span>
         </div>
         <div class="quick-grid">
           <button class="quick-card accent" type="button" data-open="wifi">
             <span class="quick-icon"><span class="icon" data-icon="wifi"></span></span>
-            <span class="quick-copy"><strong>Wi‑Fi</strong><small>Red y acceso</small></span>
+            <span class="quick-copy"><strong>Wi‑Fi</strong><small data-i18n="wifiSub">Red y acceso</small></span>
           </button>
           <button class="quick-card" type="button" data-open="arrival">
             <span class="quick-icon"><span class="icon" data-icon="clock"></span></span>
-            <span class="quick-copy"><strong>Llegada y salida</strong><small>Horarios y pasos</small></span>
+            <span class="quick-copy"><strong data-i18n="arrivalTitle">Llegada y salida</strong><small data-i18n="arrivalSub">Horarios y pasos</small></span>
             <span class="icon card-arrow" data-icon="arrow"></span>
           </button>
           <button class="quick-card" type="button" data-open="rules">
             <span class="quick-icon"><span class="icon" data-icon="home"></span></span>
-            <span class="quick-copy"><strong>Reglamento</strong><small>Convivencia tranquila</small></span>
+            <span class="quick-copy"><strong data-i18n="rulesTitle">Reglamento</strong><small data-i18n="rulesSub">Convivencia tranquila</small></span>
             <span class="icon card-arrow" data-icon="arrow"></span>
           </button>
           <a class="quick-card" href="tel:+523222102354">
             <span class="quick-icon"><span class="icon" data-icon="phone"></span></span>
-            <span class="quick-copy"><strong>Contactar</strong><small>+52 322 210 2354</small></span>
+            <span class="quick-copy"><strong data-i18n="contactUs">Contactar</strong><small>+52 322 210 2354</small></span>
             <span class="icon card-arrow" data-icon="arrow"></span>
           </a>
         </div>
       </section>
 
       <section class="help-banner" id="ayuda">
-        <div class="help-art"><img src="assets/photo-pool.jpg" alt="Suite de dos camas en tonos suaves"></div>
+        <div class="help-art"><img src="assets/photo-pool.jpg" data-i18n-alt="altHelp" alt="Suite de dos camas en tonos suaves"></div>
         <div class="help-copy">
-          <span class="section-kicker light">Estamos cerca</span>
-          <h2>¿Necesitas algo?</h2>
-          <p>Encuentra respuestas rápidas o comunícate con nosotros.</p>
+          <span class="section-kicker light" data-i18n="weAreClose">Estamos cerca</span>
+          <h2 data-i18n="needTitle">¿Necesitas algo?</h2>
+          <p data-i18n="needText">Encuentra respuestas rápidas o comunícate con nosotros.</p>
           <div class="help-actions">
-            <button type="button" data-open="emergency" class="help-emergency">Emergencias</button>
-            <button type="button" data-open="faq">Ver preguntas frecuentes</button>
-            <a href="tel:+523222102354">Llamar ahora</a>
+            <button type="button" data-open="emergency" class="help-emergency" data-i18n="emergencies">Emergencias</button>
+            <button type="button" data-open="faq" data-i18n="seeFaq">Ver preguntas frecuentes</button>
+            <a href="tel:+523222102354" data-i18n="callNow">Llamar ahora</a>
           </div>
         </div>
       </section>
@@ -117,23 +117,23 @@
       <footer>
         <img class="footer-logo" src="assets/logo-dark.png" alt="La Casa de Consuelo" width="160" style="width:160px;height:auto;display:block;margin:0 auto 14px">
         <p>Av. Sol Nuevo 86 · Rincón de Guayabitos</p>
-        <small>Hecho para una estancia sin prisas.</small>
+        <small data-i18n="footerNote">Hecho para una estancia sin prisas.</small>
       </footer>
     </main>
 
-    <nav class="bottom-nav" aria-label="Navegación principal">
-      <a class="active" href="#inicio" data-nav="home"><span class="icon" data-icon="home"></span><span>Inicio</span></a>
-      <a href="#explorar" data-nav="explore"><span class="icon" data-icon="compass"></span><span>Explorar</span></a>
-      <button type="button" data-open="faq"><span class="icon" data-icon="help"></span><span>Ayuda</span></button>
-      <a href="tel:+523222102354"><span class="icon" data-icon="phone"></span><span>Contacto</span></a>
+    <nav class="bottom-nav" data-i18n-aria="ariaNav" aria-label="Navegación principal">
+      <a class="active" href="#inicio" data-nav="home"><span class="icon" data-icon="home"></span><span data-i18n="navHome">Inicio</span></a>
+      <a href="#explorar" data-nav="explore"><span class="icon" data-icon="compass"></span><span data-i18n="navExplore">Explorar</span></a>
+      <button type="button" data-open="faq"><span class="icon" data-icon="help"></span><span data-i18n="navHelp">Ayuda</span></button>
+      <a href="tel:+523222102354"><span class="icon" data-icon="phone"></span><span data-i18n="navContact">Contacto</span></a>
     </nav>
   </div>
 
   <div class="sheet-layer" id="sheetLayer" aria-hidden="true">
-    <button class="sheet-backdrop" type="button" aria-label="Cerrar"></button>
+    <button class="sheet-backdrop" type="button" data-i18n-aria="ariaClose" aria-label="Cerrar"></button>
     <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
       <div class="sheet-handle"></div>
-      <button class="sheet-close" type="button" aria-label="Cerrar"><span class="icon" data-icon="close"></span></button>
+      <button class="sheet-close" type="button" data-i18n-aria="ariaClose" aria-label="Cerrar"><span class="icon" data-icon="close"></span></button>
       <div class="sheet-icon"><span class="icon" id="sheetIcon" data-icon="info"></span></div>
       <span class="section-kicker" id="sheetKicker">Información</span>
       <h2 id="sheetTitle">Título</h2>
@@ -141,6 +141,6 @@
     </section>
   </div>
 
-  <script src="app.js?v=45"></script>
+  <script src="app.js?v=50"></script>
 </body>
 </html>
