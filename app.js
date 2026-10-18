@@ -39,7 +39,7 @@ const villaPasswords = {
   'villa-3': 'Villa3CC'
 };
 const wifiByUnit = Object.fromEntries(units.map(u => [u.id, {
-  ssid: ({ 'suites-1-6': 'CC HALL N2' })[u.id] || 'Por confirmar',
+  ssid: ({ 'suites-1-6': 'CC HALL N2' })[u.id] || '',
   password: villaPasswords[u.id] || DEFAULT_WIFI_PASSWORD
 }]));
 function chipHtml(unit) {
@@ -56,8 +56,8 @@ function wifiSheetHtml() {
     </div>
     <div class="wifi-result" id="wifiResult" hidden>
       <div class="data-row"><strong>Unidad</strong><small id="wifiUnitLabel"></small></div>
-      <div class="data-row copy-row"><div><strong>Nombre de la red</strong><small id="wifiSsid"><span class="pending">Por confirmar</span></small></div><button type="button" data-copy="ssid">Copiar</button></div>
-      <div class="data-row copy-row"><div><strong>Contraseña</strong><small id="wifiPass"><span class="pending">Por confirmar</span></small></div><button type="button" data-copy="password">Copiar</button></div>
+      <div class="data-row copy-row"><div><strong>Nombre de la red</strong><small id="wifiSsid"></small></div><button type="button" data-copy="ssid">Copiar</button></div>
+      <div class="data-row copy-row"><div><strong>Contraseña</strong><small id="wifiPass"></small></div><button type="button" data-copy="password">Copiar</button></div>
     </div>`;
 }
 const sheets = {
@@ -172,6 +172,7 @@ function selectUnit(unitId) {
   result.hidden = false;
   sheetContent.querySelector('#wifiUnitLabel').textContent = selectedUnit.label;
   sheetContent.querySelector('#wifiSsid').innerHTML = pending(data.ssid);
+  sheetContent.querySelector('#wifiSsid').closest('.data-row').hidden = !data.ssid;
   sheetContent.querySelector('#wifiPass').innerHTML = pending(data.password);
 }
 function bindWifiSheet() {
