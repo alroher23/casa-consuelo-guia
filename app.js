@@ -73,6 +73,7 @@ const sheets = {
     icon: 'home', kicker: 'Convivencia', title: 'Reglamento de la casa', html: `
       <p>Notas para estancias cortas. Queremos que todas las personas disfruten un ambiente tranquilo y agradable.</p>
       <div class="data-row"><strong>Horarios</strong><small>Llegada 3:00 p.m. · Salida 11:00 a.m.</small></div>
+      <div class="data-row"><strong>Horario de alberca</strong><small>De 8:00 a.m. a 9:00 p.m.</small></div>
       <div class="data-row"><strong>Mascotas</strong><small>No se permiten mascotas.</small></div>
       <div class="data-row"><strong>Ruido</strong><small>Se prohíbe el uso de bocinas en áreas comunes.</small></div>
       <div class="data-row"><strong>Fumar</strong><small>Prohibido fumar dentro del complejo.</small></div>
